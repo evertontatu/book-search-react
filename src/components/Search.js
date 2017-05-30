@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import LivroItem from './Livro';
-
+import $ from 'jquery';
 
 export default class Search extends Component{
 
@@ -11,29 +10,29 @@ export default class Search extends Component{
 
     search(event){
         event.preventDefault();
-        
-        fetch('https://www.googleapis.com/books/v1/volumes?q=${this.term}')
-        .then(response => response.json())
-        .then(livros => {
-            this.setstate({livros:livros});
-            console.log(livros);
+
+        let search = document.getElementById('search').value
+        document.getElementById('results').innerHTML = ""
+        console.log(search)
+
+        $.ajax({
+            url: "https://www.googleapis.com/books/v1/volumes?q=" + search,
+            dataType: "json",
+
+            success: function(data){
+                console.log(data)
+            },
+            type: 'GET'
         });
     }
+    
 
     render(){
         return (
             <div>
-                <div>
-                    <form onSubmit={this.search.bind(this)}>
-                        <input type="text" ref={(input) => this.term = input} />
-                        <input type="submit" value="Pesquisar"/>
-                    </form>
-                </div>
-                <div>
-                   {
-                        this.state.livros.map(livro => <LivroItem livro={livro} />)
-                    }
-                </div>
+                <input id="search" type="text"  placeholder="Pesquise um livro"/>
+                <button id="button" type="button">Pesquisar</button>
+                <div id="results"></div>
             </div>
         );
     }
