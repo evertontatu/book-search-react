@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Book from './Book';
 
-
 export default class Search extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {books:[]};
         this.state = {posts: []};
     }
@@ -13,9 +12,6 @@ export default class Search extends Component{
     /* Função para receber o valor do campo da pesquisa e realizar a consulta na API */
     search(event){
         event.preventDefault();
-
-        /*Recupera o valor digitado do campo da pesquisa*/
-        /*let search = document.getElementById('search').value*/
 
         /*Utilizando a fetch API para realizar o http request concatenando com o valor digitado*/
         fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.searchWord.value}`)
@@ -27,12 +23,14 @@ export default class Search extends Component{
             return response.json()
         }).then(books => {
             this.setState({books:books});
-            /*Salvando o array em books.items para realizar o .map*/
+            /*atribuindo na variavel posts os objetos de books.items para realizar o .map*/
             const posts = books.items;
             this.setState({posts});
+            console.log(posts);
 
         }).catch(error => {            
             console.log(error);
+            throw new Error('Algo deu errado, desculpe :(');            
         });
     }
     
@@ -52,7 +50,6 @@ export default class Search extends Component{
                 <div className="book-results">
                     {/*Executando a função map para caminhar no array posts, enviando o resultado de cada posição como parametro para o component Book*/}
                     {this.state.posts.map(book => <Book key={book.id} book={book}/>)}
-
                 </div>
             </div>
         );

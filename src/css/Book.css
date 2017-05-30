@@ -3,12 +3,36 @@
 }
 
 .book-box{
-    border: solid 2px grey;
+    border: solid 2px #eee;
     border-radius: 5px;
     margin:15px 0;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
     transition: ease-in-out 300ms all;
 }
 .book-box:hover{
     border: solid 2px #0275d8;
+}
+.book-box>div:first-child{
+    width: 200px;
+}
+.book-box>div:nth-child(2){
+    padding: 0 20px;
+    flex-grow: 3;
+}
+.book-box-description{
+    max-width: 80ch;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+@media screen and (max-width:991px){
+    .book-box{
+        flex-direction: column;
+    }
+    .book-box>div:nth-child(2){
+        padding: 0;
+    }
 }
