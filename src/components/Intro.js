@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LivroItem from './Livro';
+import Book from './Livro';
 
 export default class Intro extends Component{
 
