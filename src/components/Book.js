@@ -8,7 +8,7 @@ export default class Book extends Component {
     render(){
         return(
             <div>
-                {/*Recebendo o item do array com a variável props para acessar os objetos/propriedades do json*/}
+                {/*Recebendo o item do array com a variável props para acessar os objetos do json*/}
                 <div className="book-box">
                     <div>
                         <img src={this.props.book.volumeInfo.imageLinks.thumbnail} alt={this.props.book.volumeInfo.title}/>                        
@@ -21,8 +21,8 @@ export default class Book extends Component {
                         <p className="box-book-description">{this.props.book.volumeInfo.description}</p>
                     </div>
                     <div>
-                        <Info key={this.props.book.id} book={this.props.book}/>
-                        <Favorite/>
+                        <Info book={this.props.book}/>
+                        <Favorite book={this.props.book}/>
                     </div>                
                 </div>
             </div>

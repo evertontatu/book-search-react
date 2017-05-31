@@ -26,11 +26,10 @@ export default class Search extends Component{
             /*atribuindo na variavel posts os objetos de books.items para realizar o .map*/
             const posts = books.items;
             this.setState({posts});
-            console.log(posts);
 
         }).catch(error => {            
             console.log(error);
-            throw new Error('Algo deu errado, desculpe :(');            
+            throw new Error('Algo deu errado, desculpe :(');
         });
     }
     
