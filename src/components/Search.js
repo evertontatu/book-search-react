@@ -43,7 +43,7 @@ export default class Search extends Component{
                     <div className="input-group">
                         <input id="search" type="text" className="form-control" placeholder="Pesquise um livro" ref={input => this.searchWord = input}/>
                         <span className="input-group-btn">
-                            <button className="btn btn-default" type="submit">Pesquisar!</button>
+                            <button className="btn btn-success" type="submit">Pesquisar!</button>
                         </span>
                     </div>
                 </form>

@@ -15,13 +15,22 @@
     border: solid 2px #0275d8;
 }
 .book-box>div:first-child{
-    width: 200px;
+    width: 90px;
 }
 .book-box>div:nth-child(2){
     padding: 0 20px;
+    width: 400px;
     flex-grow: 3;
 }
-.book-box-description{
+.book-box>div:nth-child(2)>h3{
+    margin-top:0;
+}
+.book-box>div:nth-child(2){
+    padding: 0 20px;
+    width: 400px;
+    flex-grow: 3;
+}
+.box-book-description{
     max-width: 80ch;
     overflow: hidden;
     text-overflow: clip;
@@ -34,5 +43,11 @@
     }
     .book-box>div:nth-child(2){
         padding: 0;
+    }
+    .book-box>div:nth-child(2){
+        width: 100%;
+    }
+    .book-box>div:nth-child(2)>h3{
+        margin-top:20px;
     }
 }

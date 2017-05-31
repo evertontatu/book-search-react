@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/Book.css';
+import Info from './Info';
 import Favorite from './Favorite';
 
 export default class Book extends Component {
@@ -15,11 +16,12 @@ export default class Book extends Component {
                     <div>
                         <h3>{this.props.book.volumeInfo.title}</h3>
                         <p>Ano de lançamento: {this.props.book.volumeInfo.publishedDate}</p>
-                        <p>N° de páginas: {this.props.book.volumeInfo.pageCount}</p>
-                        <p className="book-box-description">{this.props.book.volumeInfo.description}</p>
+                        <p>{this.props.book.volumeInfo.pageCount} páginas</p>
+
+                        <p className="box-book-description">{this.props.book.volumeInfo.description}</p>
                     </div>
                     <div>
-                        <a href={this.props.book.volumeInfo.infoLink}> <button type="button" className="btn btn-primary">Mais Informações</button> </a>
+                        <Info key={this.props.book.id} book={this.props.book}/>
                         <Favorite/>
                     </div>                
                 </div>
