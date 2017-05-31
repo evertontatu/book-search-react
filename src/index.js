@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Info from './components/Info';
+import BookInfo from './components/BookInfo';
 import {BrowserRouter as Router, Route,Switch,Link} from 'react-router-dom';
 import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -11,7 +11,7 @@ ReactDOM.render((
         <App>
             <Switch>
                 <Route exact path="/" component={App}/>
-                <Route path="/info" component={Info}/>
+                <Route path="/bookinfo" component={BookInfo}/>
             </Switch>
         </App>
     </Router>

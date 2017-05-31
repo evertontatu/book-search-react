@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-export default class Info extends Component {
+export default class BookInfo extends Component {
 
     render(){
         return(
             <div>
-                <a href={this.props.book.id}>Mais Informações</a>
+               <h1>Book Info</h1>
             </div>
         );
     }
