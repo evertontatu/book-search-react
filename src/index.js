@@ -11,7 +11,8 @@ ReactDOM.render((
         <App>
             <Switch>
                 <Route exact path="/" component={App}/>
-                <Route path="/bookinfo" component={BookInfo}/>
+                <Route path="/teste" component={BookInfo}/>
+                <Route path="/:book.id" component={BookInfo}/>
             </Switch>
         </App>
     </Router>
